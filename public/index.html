@@ -5,24 +5,28 @@
     <title>TodoMVC</title>
     <link rel="stylesheet" href="style.css">
   </head>
-  <body ng-app='todosapp'>
+  <body>
     <section id="todoapp">
       <header id="header">
         <h1>Todos</h1>
-        <input type="text" id="new-todo" placeholder="What needs to be done?" ng-model="newTitle" todoinput/>
+        <input type="text" id="new-todo" placeholder="What needs to be done?" />
       </header>
 
         <section id="main">
-          <div ng-view></div>
-
-          <script type="text/x-handlebars-template" id="todos">
-            <ul id="todo-list">
-              <li ng-repeat="todo in todos">
-                <input types="checkbox" class="toggle">
-                <label>{{todo.title}}</label><button class="destroy"></button>
-              </li>
-            </ul>
-          </script>
+          <ul id="todo-list">
+            <li class="completed">
+              <input type="checkbox" class="toggle">
+              <label>Todo_1</label><button class="destroy"></button>
+            </li>
+            <li>
+              <input type="checkbox" class="toggle">
+              <label>Todo_2</label><button class="destroy"></button>
+            </li>
+            <li>
+              <input type="checkbox" class="toggle">
+              <label>Todo_3</label><button class="destroy"></button>
+            </li>
+          </ul>
 
           <input type="checkbox" id="toggle-all">
         </section>
@@ -52,9 +56,5 @@
     <footer id="info">
       <p>Double-click to edit a todo</p>
     </footer>
-
-    <script type="text/javascript" src='js/libs/angular.js'></script>
-    <script type="text/javascript" src="js/libs/socket.io.min.js"></script>
-    <script type="text/javascript" src="js/client.js"></script>
   </body>
 </html>
