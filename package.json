@@ -1,0 +1,27 @@
+{
+  "name": "Todos_Angular",
+  "version": "0.0.1",
+  "description": "TodosMVC_Angular",
+  "main": "server.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/ibagsoft/Todos_Angular.git"
+  },
+  "keywords": [
+    "TodosMVC",
+    "Angular",
+    "mongoose",
+    "socket.io"
+  ],
+  "author": "jzh@ibagsoft",
+  "license": "MIT",
+  "gitHead": "e7acbde9bfff2741431e20672406ce2b7814ba60",
+  "dependencies":{
+    "express":"*",
+    "mongoose":"*",
+    "socket.io":"*"
+  }
+}
