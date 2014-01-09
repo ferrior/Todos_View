@@ -9,7 +9,7 @@ require.config({
 });
 
 require(['$','tmpl','em'], function(){
-	require(['ember-data'], function(){
+	require(['ember-data'], function(){//ember-data require em, so load em firstly.
 		window.App = Em.Application.create();
 		/*App.ApplicationView = Em.View.extend({
 			templateName:"todos"
@@ -17,16 +17,14 @@ require(['$','tmpl','em'], function(){
 		App.Router.map(function(){
 			this.route('todos',{path:'/'});
 		});
-
+		App.Todo = DS.Model.extend({
+			title:DS.attr('string'),
+			isCompleted:DS.attr('boolean')
+		});
 		//begin FIXTURES
 		App.ApplicationAdapter = DS.FixtureAdapter.extend();
 		App.Store = DS.Store.extend({
 			adapter:'DS.FixtureAdapter'
-		});
-
-		App.Todo = DS.Model.extend({
-			title:DS.attr('string'),
-			isCompleted:DS.attr('boolean')
 		});
 		//假数据
 		App.Todo.FIXTURES = [
@@ -35,7 +33,6 @@ require(['$','tmpl','em'], function(){
 			{id:3, title:'todo3', isCompleted:true}
 		];
 		//end 
-
 		App.TodosRoute = Em.Route.extend({
 			model:function(){
 				return this.store.find('todo');
