@@ -1,12 +1,16 @@
 var todosApp =  angular.module('todosApp', []);
 
 todosApp.config(function ($routeProvider){
-	$routeProvider.when('/todos', {template:angular.element(todos_tmpl).text()}).
-	when('/todos/:id', {template:'test2'}).
+	$routeProvider.when('/todos', {
+		template:angular.element(todos_tmpl).text(),
+		controller:'todosController'
+	}).
 	otherwise({redirectTo:'/todos'});
 }
 );
 
-todosApp.controller('todosController',function ($scope){
-	$scope.todos = [{title:'title1'}, {title:'title2'}];
+todosApp.controller('todosController',function ($scope, $http){
+	$http.get('/todos').success(function(data){
+		$scope.todos = data;
+	});
 });
