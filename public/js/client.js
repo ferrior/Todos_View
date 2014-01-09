@@ -14,8 +14,13 @@ require(['$','tmpl','em'], function(){
 	});*/
 	App.Router.map(function(){
 		this.route('todos',{path:'/'});
+		this.route('todos',{path:'/todos/:id'});
+		this.route('users',{path:'/people/:name'});// access index.html#/people
 	});
-	App.TodosController = Em.Controller.extend({
-		todos:[{title:'todo1'},{title:'todo2'}]
+
+	App.TodosRoute = Em.Route.extend({
+		model:function(){
+			return [{title:'todo11'},{title:'todo22'}];
+		}
 	});
 });

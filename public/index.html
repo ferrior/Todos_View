@@ -15,10 +15,10 @@
 
         <section id="main">
           <ul id="todo-list">
-          {{#each todo in todos}}
+          {{#each}}
             <li class="completed">
               <input type="checkbox" class="toggle">
-              <label>{{todo.title}}</label><button class="destroy"></button>
+              <label>{{title}}</label><button class="destroy"></button>
             </li>
             {{/each}}
           </ul>
