@@ -14,12 +14,6 @@
 
         <section id="main">
           <div ng-view></div>
-          <ul id="todo-list" ng-controller='todosController'>
-            <li class="completed" ng-repeat='todo in todos'>
-              <input type="checkbox" class="toggle">
-              <label>{{todo.title}}</label><button class="destroy"></button>
-            </li>
-          </ul>
 
           <input type="checkbox" id="toggle-all">
         </section>
@@ -51,5 +45,13 @@
     </footer>
     <script type="text/javascript" src="js/libs/angular.js"></script>
     <script type="text/javascript" src="js/client.js"></script>
+    <script type="text/x-handlebars-template" id='todos_tmpl'>
+          <ul id="todo-list" ng-controller='todosController'>
+            <li class="completed" ng-repeat='todo in todos'>
+              <input type="checkbox" class="toggle">
+              <label>{{todo.title}}</label><button class="destroy"></button>
+            </li>
+          </ul>
+    </script>
   </body>
 </html>
