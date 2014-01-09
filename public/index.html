@@ -15,18 +15,12 @@
 
         <section id="main">
           <ul id="todo-list">
+          {{#each todo in todos}}
             <li class="completed">
               <input type="checkbox" class="toggle">
-              <label>Todo_1</label><button class="destroy"></button>
+              <label>{{todo.title}}</label><button class="destroy"></button>
             </li>
-            <li>
-              <input type="checkbox" class="toggle">
-              <label>Todo_2</label><button class="destroy"></button>
-            </li>
-            <li>
-              <input type="checkbox" class="toggle">
-              <label>Todo_3</label><button class="destroy"></button>
-            </li>
+            {{/each}}
           </ul>
 
           <input type="checkbox" id="toggle-all">
@@ -53,10 +47,10 @@
           </button>
         </footer>
     </section>
-    </script>
     <footer id="info">
       <p>Double-click to edit a todo</p>
     </footer>
+  </script>
     <script type="text/javascript" src="js/libs/require.js" data-main="js/client.js"></script>
   </body>
 </html>
