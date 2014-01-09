@@ -9,4 +9,7 @@ require.config({
 
 require(['$','tmpl','em'], function(){
 	window.App = Em.Application.create();
+	App.ApplicationView = Em.View.extend({
+		templateName:"todos"
+	});
 });
