@@ -12,6 +12,12 @@ app.get('/todos', function(req,res){
 	res.send(todos);
 });
 
+app.get('/todos/:id', function(req,res){
+	console.log(req.params);
+	var todos = [{title:'title_todo_' + req.params['id']}];
+	res.send(todos);
+});
+
 app.post('/todos', function(req,res){
 	console.log(req.body);
 });
