@@ -13,18 +13,11 @@
       </header>
 
         <section id="main">
-          <ul id="todo-list">
-            <li class="completed">
+            
+          <ul id="todo-list" ng-controller='todosController'>
+            <li class="completed" ng-repeat='todo in todos'>
               <input type="checkbox" class="toggle">
-              <label>{{newTitle}}</label><button class="destroy"></button>
-            </li>
-            <li>
-              <input type="checkbox" class="toggle">
-              <label>Todo_2</label><button class="destroy"></button>
-            </li>
-            <li>
-              <input type="checkbox" class="toggle">
-              <label>Todo_3</label><button class="destroy"></button>
+              <label>{{todo.title}}</label><button class="destroy"></button>
             </li>
           </ul>
 
@@ -57,5 +50,6 @@
       <p>Double-click to edit a todo</p>
     </footer>
     <script type="text/javascript" src="js/libs/angular.js"></script>
+    <script type="text/javascript" src="js/client.js"></script>
   </body>
 </html>
