@@ -3,33 +3,45 @@ require.config({
 	paths:{
 		'$':'jquery',
 		'tmpl':'handlebars',
-		'em':'ember'
+		'em':'ember',
+		'ember_data':'ember-data'
 	}
 });
 
 require(['$','tmpl','em'], function(){
-	window.App = Em.Application.create();
-	/*App.ApplicationView = Em.View.extend({
-		templateName:"todos"
-	});*/
-	App.Router.map(function(){
-		this.route('todos',{path:'/'});
-	});
-	App.Todo = Em.Object.extend({
-		title:null,
-		isCompleted:false
-	});
+	require(['ember-data'], function(){
+		window.App = Em.Application.create();
+		/*App.ApplicationView = Em.View.extend({
+			templateName:"todos"
+		});*/
+		App.Router.map(function(){
+			this.route('todos',{path:'/'});
+		});
 
-	App.TodosRoute = Em.Route.extend({
-		model:function(){
-			var todos = [];
-			for (var i = 1; i < 4; i++){
-				todos.push(App.Todo.create({
-					title:"Todo_"+i
-				}));
+		//begin FIXTURES
+		App.ApplicationAdapter = DS.FixtureAdapter.extend();
+		App.Store = DS.Store.extend({
+			adapter:'DS.FixtureAdapter'
+		});
+
+		App.Todo = DS.Model.extend({
+			title:DS.attr('string'),
+			isCompleted:DS.attr('boolean')
+		});
+		//假数据
+		App.Todo.FIXTURES = [
+			{id:1, title:'todo1', isCompleted:true},
+			{id:2, title:'todo2', isCompleted:true},
+			{id:3, title:'todo3', isCompleted:true}
+		];
+		//end 
+
+		App.TodosRoute = Em.Route.extend({
+			model:function(){
+				return this.store.find('todo');
+
 			}
-			return todos;
-		}
+		});
+		App.TodosController = Em.ArrayController.extend();
 	});
-	App.TodosController = Em.ArrayController.extend();
 });
